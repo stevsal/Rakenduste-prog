@@ -3,7 +3,17 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="myScript.js"></script>
+    <script>
+    //alert("Hello");
+    const x = window.location;
+    console.log(x);
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("title");
+    const cost = urlParams.get("cost");
+    const src = urlParams.get("src");
+    console.log(title, cost, src);
+    alert(`Title: ${title} cost: ${cost} path: ${src}`)
+    </script>
     <title>Rakenduste programeerimine</title>
   </head>
   <body>
@@ -16,17 +26,11 @@
         </a>
     		<nav class="main-nav">
     			<ul class="main-nav-list">
-    				<li>
-    					<a href="#">Home</a>
+            <li>
+    					<a href="#">login/signup</a>
     				</li>
     				<li>
-    					<a href="#">About us</a>
-    				</li>
-    				<li>
-    					<a href="#">Our clients</a>
-    				</li>
-    				<li>
-    					<a href="#">Contact</a>
+    					<a href="#">cart</a>
     				</li>
     			</ul>
     		</nav>
