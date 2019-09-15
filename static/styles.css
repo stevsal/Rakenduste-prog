@@ -96,6 +96,24 @@ img {
   height: 350px;
 }
 
+.item__name{
+  color: #03c2fc;
+}
+.item__price{
+  font-size: 12px;
+  color: #03c2fc ;
+}
+
+.item_container{
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  width: 90%;
+  padding: 40px 20px;
+}
+.item_container img{
+  width: 350px;
+  height: 350px;
+}
+
 /**
  * By using display: flex
  * Logo and nav are in 2 cols
