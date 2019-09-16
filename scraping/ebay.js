@@ -14,7 +14,7 @@
 
     const img = imgs[0];
 
-    const src = img.dataset.src;
+    const src = img.src;
     console.log("src",src);
     console.log(img);
     if(!src) return;
