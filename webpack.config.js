@@ -10,6 +10,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyPlugin([
       { from: 'public' }
     ]),
