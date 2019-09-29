@@ -38,7 +38,7 @@ function createItems() {
 function setupCategroyListener() {
   const dropdown = document.getElementById('category-select')
   dropdown.addEventListener('change', (event) => {
-  console.log(event.target.value);
+  //console.log(event.target.value);
   selectedCategory = event.target.value;
   createItems();
   /*const result = document.querySelector('.result');

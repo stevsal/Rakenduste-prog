@@ -1,10 +1,13 @@
-const homepage = require("./homepage.js");
-const item = require('./item.js');
+import React from "react";
+import ReactDOM from "react-dom";
 
-console.log("i am index file");
+const root = document.getElementById('app');
 
-
-window.addEventListener("load",() =>{
-  homepage.setup();
-  item.setup()
-});
+ReactDOM.render(
+  React.createElement(
+    "button",
+    {},
+    "i am a button, hello world "
+  ),
+  root
+);
