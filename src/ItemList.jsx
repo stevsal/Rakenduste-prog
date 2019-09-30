@@ -14,7 +14,9 @@ const items = [
 
 const ItemList = () => {
   return (
-    <div className="content">Item List</div>
+    <div className="content">
+    
+    </div>
   )
 };
 
