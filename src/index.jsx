@@ -1,22 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "./Header.jsx";
-import ItemList from "./ItemList.jsx";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Homepage from "./homepage.jsx";
+import Itempage from "./Itempage.jsx";
 
 const root = document.getElementById('app');
 
 
 
-const App = () => {
-  return(
-    <>
-      <Header/>,
-      <ItemList/>
-    </>
-  )
-};
 
 ReactDOM.render(
-  <App/>,
+  <BrowserRouter>
+    <Route path="/" exact component={Homepage}>
+    </Route>
+    <Route path="/item" exact component={Itempage}>
+    </Route>
+  </BrowserRouter>
+ ,
   root
 );
