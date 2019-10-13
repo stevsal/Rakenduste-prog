@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter,
-  Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Homepage from "./homepage.jsx";
 import Itempage from "./Itempage.jsx";
 
-const root = document.getElementById('app');
+const root = document.getElementById("app");
 
 
 
@@ -18,7 +16,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Route path="/" exact component={Homepage}>
     </Route>
-    <Route path="/item" exact component={Itempage}>
+    <Route path="/items/:itemId" exact component={Itempage}>
     </Route>
   </BrowserRouter>
  ,
