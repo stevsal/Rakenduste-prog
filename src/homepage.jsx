@@ -19,7 +19,7 @@ class Homepage extends React.PureComponent {
   }
 
   fetchItems = () => {
-    fetch("api/items").then(res => {
+    fetch("api/products").then(res => {
       console.log("res", res);
       return res.json();
     })

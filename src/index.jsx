@@ -16,7 +16,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Route path="/" exact component={Homepage}>
     </Route>
-    <Route path="/items/:itemId" exact component={Itempage}>
+    <Route path="/products/:itemId" exact component={Itempage}>
     </Route>
   </BrowserRouter>
  ,
