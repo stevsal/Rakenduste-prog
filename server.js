@@ -3,14 +3,22 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 const DB = require("./server/database.js");
+const mongoose = require("mongoose");
+const userRouter = require("./src/user.js");
+require('dotenv').config();
 
-app.get("/api/products", (req, res)=>{
-  res.json(DB.getItems());
-});
+const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0-htexd.gcp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
-app.get("/api/products/:itemId", (req, res) => {
-  res.send(DB.getItem(req.params.itemId));
-});
+mongoose.connect(DB_URL)
+  .then(() => {
+    console.log("Database access success!");
+    listen();
+  })
+  .catch( err => {
+    console.log("err0r happened", err);
+  });
+
+  app.use(userRouter);
 
 app.post("/hello",(req, res) => {
   res.send("hello");
@@ -26,8 +34,12 @@ app.get("/products/*", (req, res) => {
 
 app.use(express.static("dist"));
 
-//heroku
-app.listen(PORT, () => {
-  console.log("Server started", PORT);
-  console.log(`http://localhost:${PORT}`);
-});
+
+
+function listen() {
+  //heroku
+  app.listen(PORT, () => {
+    console.log("Server started", PORT);
+    console.log(`http://localhost:${PORT}`);
+  });
+}

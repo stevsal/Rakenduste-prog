@@ -74,6 +74,9 @@
   height: 350px;
 }
 
+.items-header-wrapper{
+  padding: 10px;
+}
 /**
  * By using display: flex
  * Logo and nav are in 2 cols

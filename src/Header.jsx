@@ -12,14 +12,20 @@ const Header = () => {
       <div className="container">
           <h1 className="logo">
             <Link to={"/"}>
-              <img src="/images/logo.png" width="170" height="95" />
+              <img src="/images/logo.png" width="300" height="300" />
             </Link>
           </h1>
            <div className="header-buttons">
-             <img src={userIcon}/>
-             <button>Login/signup</button>
-             <img src={cartIcon} />
-             <button>Cart</button>
+             <div className={"header-button"}>
+               <img src={userIcon}/>
+               <div className={"header-button-text"}>Login/signup</div>
+             </div>
+             <div className={"header-button"}>
+               <img src={cartIcon} />
+               <div>
+                 <div className={"header-button-text"}>Cart</div>
+               </div>
+             </div>
            </div>
          </div>
     </div>

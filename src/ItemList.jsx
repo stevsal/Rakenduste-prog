@@ -35,6 +35,7 @@ const Item = (props) => {
         <h2 className="item__name">{props.title}</h2>
         <img src={props.imgSrc} className="item__image"/>
         <div className="item__price">{props.price}</div>
+        <div className="item_reviews">{`(${getRandomIntInclusive(0,100)} reviews)`}</div>
       </div>
     </Link>
 
@@ -47,5 +48,11 @@ Item.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired
 };
+
+function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
 export default ItemList;
