@@ -1,8 +1,14 @@
 import React from "react";
 import "./signupform.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class SignupPage extends React.PureComponent {
+
+    static propTypes = {
+            history: PropTypes.object.isRequired,
+        };
+
 
     constructor(props) {
         super(props);
@@ -18,7 +24,7 @@ class SignupPage extends React.PureComponent {
         console.log("submit", this.state);
         event.preventDefault();
         console.log("submit", this.state);
-        fetch("/api/users/signup", {
+        fetch("/api/v1/auth/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,11 +32,13 @@ class SignupPage extends React.PureComponent {
 
             body: JSON.stringify(this.state),
         })
-        .then( res => {
-            console.log("response", res);
+        .then( res => res.json())
+        .then( data=>{
+          console.log("data", data);
+          this.props.history.push("/login");
         })
         .catch ( err => {
-            console.log("Error", err);
+          console.log("Error", err);
         });
     };
 
@@ -44,6 +52,7 @@ class SignupPage extends React.PureComponent {
 
     render() {
         return (
+          <>
             <div className="signupSection">
             <div className="info">
                 <h2>Welcome to</h2>
@@ -61,18 +70,14 @@ class SignupPage extends React.PureComponent {
                         <label htmlFor="password"></label>
                         <input type="password" className="inputFields" placeholder="Password" name= {"password"} onChange = {this.handleChange}/>
                     </li>
-                    <li>
-                        <label htmlFor="password"></label>
-                        <input type="password" className="inputFields" placeholder="Confrim Password" name= {"confirmPassword"} onChange = {this.handleChange}/>
-                    </li>
-
                     <li id="center-btn">
                         <button className="join-btn"> submit </button>
                     </li>
                     <p className="message">Already registered? <Link to={"/login"}>Login</Link></p>
                 </ul>
             </form>
-        </div>
+          </div>
+        </>
         );
     }
 }
