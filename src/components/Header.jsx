@@ -16,10 +16,10 @@ const Header = () => {
             </Link>
           </h1>
            <div className="header-buttons">
-             <div className={"header-button"}>
+             <Link className={"header-button"} to={"/login"}>
                <img src={userIcon}/>
                <div className={"header-button-text"}>Login/signup</div>
-             </div>
+             </Link>
              <div className={"header-button"}>
                <img src={cartIcon} />
                <div>

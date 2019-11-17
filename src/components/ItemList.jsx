@@ -11,8 +11,8 @@ const ItemList = (props) => {
     {
       props.items.map( item => {
         return <Item
-        key={item.id}
-        id={item.id}
+        key={item._id}
+        id={item._id}
         imgSrc={item.imgSrc}
         title={item.title}
         price={item.price}
@@ -38,7 +38,7 @@ const Item = (props) => {
         <div className="item_reviews">{`(${getRandomIntInclusive(0,100)} reviews)`}</div>
       </div>
     </Link>
-
+    
   );
 };
 
@@ -46,7 +46,7 @@ Item.propTypes = {
   id: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired
+  price: PropTypes.number.isRequired
 };
 
 function getRandomIntInclusive(min, max) {

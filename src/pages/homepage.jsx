@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./Header.jsx";
-import ItemList from "./ItemList.jsx";
-import Checkbox from "./Checkbox.jsx";
+//import Header from "../components/Header.jsx";
+import ItemList from "../components/ItemList.jsx";
+import Checkbox from "../components/Checkbox.jsx";
 import PropTypes from "prop-types";
-import Dropdown from "./Dropdown.jsx";
+import Dropdown from "../components/Dropdown.jsx";
 
 //import {phones, laptops} from "./mydatabase.jsx";
 
@@ -80,7 +80,6 @@ class Homepage extends React.PureComponent {
     console.log("state", this.state);
     return(
       <>
-        <Header/>
         <div className={"items-header-wrapper"}>
           <ItemFilters
             allCategories={this.state.allCategories}
