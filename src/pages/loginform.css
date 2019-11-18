@@ -41,7 +41,7 @@
    left: 50%;
    width: 30px;
    height: 4px;
-   background: #4285F4;
+   background: #03c2fc;
    transform: translate(-50%, -50%);
  }
  .form-toggle:before {
@@ -103,7 +103,7 @@
  }
  .form-group button {
    outline: none;
-   background: #4285F4;
+   background: #03c2fc;
    width: 100%;
    border: 0;
    border-radius: 4px;
@@ -118,7 +118,7 @@
  }
  .two .form-group button {
    background: #FFFFFF;
-   color: #4285F4;
+   color: #03c2fc;
  }
  .form-group .form-remember {
    font-size: 12px;
@@ -132,7 +132,7 @@
    margin: 0 10px 0 0;
  }
  .form-group .form-recovery {
-   color: #4285F4;
+   color: #03c2fc;
    font-size: 12px;
    text-decoration: none;
  }
@@ -157,7 +157,7 @@
    position: absolute;
    top: 0;
    left: 95%;
-   background: #4285F4;
+   background: #03c2fc;
    width: 100%;
    min-height: 100%;
    padding: 60px calc(10% + 60px) 60px 60px;
@@ -198,7 +198,7 @@
  }
  .form-header h1 {
    padding: 4px 0;
-   color: #4285F4;
+   color: #03c2fc;
    font-size: 24px;
    font-weight: 700;
    text-transform: uppercase;
@@ -229,5 +229,5 @@
  }
  .cp-fab {
    background: #FFFFFF !important;
-   color: #4285F4 !important;
+   color: #03c2fc !important;
  }

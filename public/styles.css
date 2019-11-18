@@ -51,8 +51,8 @@
 
 }
 .item img{
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 300px;
 }
 
 .item__name{
@@ -70,8 +70,8 @@
   padding: 40px 20px;
 }
 .item_container img{
-  width: 350px;
-  height: 350px;
+  width: 30%;
+  height: 30%;
 }
 
 .items-header-wrapper{
