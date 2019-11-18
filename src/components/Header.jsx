@@ -4,11 +4,11 @@ import {userIcon} from "./icons.js";
 import {cartIcon} from "./icons.js";
 import "./header.css";
 import PropTypes from "prop-types";
+import authConsumer from "./authConsumer.jsx";
 
 console.log(userIcon);
 
-const Header = ({token, user}) => {
-  console.log("header", token, user);
+const Header = ({user}) => {
   return(
     <div className="main-header">
       <div className="container">
@@ -20,12 +20,12 @@ const Header = ({token, user}) => {
            <div className="header-buttons">
              {user.email && <WelcomeIcon user = {user} />}
              {!user.email && <LoginRegisterIcon />}
-             <div className={"header-button"}>
+             <Link className={"header-button"} to={"/checkout/cart"}>
                <img src={cartIcon} />
                <div>
                  <div className={"header-button-text"}>Cart</div>
                </div>
-             </div>
+             </Link>
            </div>
          </div>
     </div>
@@ -55,4 +55,4 @@ const WelcomeIcon = ({user}) => (
     user: PropTypes.object.isRequired
   };
 
-export default Header;
+  export default authConsumer(Header);

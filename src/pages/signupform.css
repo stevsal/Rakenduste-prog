@@ -71,7 +71,12 @@
   cursor: pointer;
   transition: 0.4s;
 }
+
 .join-btn:hover {
   background: rgba(20, 20, 20, 0.8);
   padding: 10px 80px;
+}
+
+.message {
+  color: black;
 }
