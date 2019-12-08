@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import FancyButton from  "../components/FancyButton.jsx";
 import {connect} from "react-redux";
 import { addItem } from "../store/actions";
-import {toast} from "react-toastify";
+import * as services from "../services.js";
 
 class Itempage extends React.PureComponent {
 
@@ -21,10 +21,7 @@ class Itempage extends React.PureComponent {
   }
 
   fetchItem = () => {
-    fetch(`/api/v1/products/${this.props.match.params.itemId}`)
-    .then( res =>{
-      return res.json();
-    })
+    services.getItem({itemId: this.props.match.params.itemId})
     .then( item =>{
       console.log("item", item);
       this.setState({
@@ -38,7 +35,6 @@ class Itempage extends React.PureComponent {
 
   handleBuy = () => {
     this.props.dispatch(addItem(this.state));
-    toast.success("Product added to cart");
   }
 
   render() {

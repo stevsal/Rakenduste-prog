@@ -7,8 +7,7 @@ import Dropdown from "../components/Dropdown.jsx";
 import {connect} from "react-redux";
 import {ItemProps} from "./CartPage.jsx";
 import {getItems} from "../store/actions";
-//import {phones, laptops} from "./mydatabase.jsx";
-
+import * as selectors from "../store/selectors.js";
 
 class Homepage extends React.PureComponent {
 
@@ -75,6 +74,12 @@ class Homepage extends React.PureComponent {
     console.log("state", this.state);
     return(
       <>
+      <div className="hero-image">
+        <div className="hero-text">
+          <h1>Welcome</h1>
+          <p>There is a webstore below</p>
+        </div>
+      </div>
         <div className={"items-header-wrapper"}>
           <CategoriesFilter
             allCategories={this.state.allCategories}
@@ -123,7 +128,7 @@ CategoriesFilter.propTypes = {
 
 const mapStateToProps = (store) => {
    return {
-       items: store.items,
+     items: selectors.getItems(store),
    };
 };
 

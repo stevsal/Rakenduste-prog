@@ -3,6 +3,7 @@ import "./signupform.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
+import * as services from "../services.js";
 
 class SignupPage extends React.PureComponent {
 
@@ -22,20 +23,8 @@ class SignupPage extends React.PureComponent {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit", this.state);
-        event.preventDefault();
-        console.log("submit", this.state);
-        fetch("/api/v1/auth/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify(this.state),
-        })
-        .then( res => res.json())
-        .then( data=>{
-          console.log("data", data);
+        services.signup(this.state)
+        .then( () => {
           this.props.history.push("/login");
           toast.success("User was created");
         })
@@ -57,11 +46,6 @@ class SignupPage extends React.PureComponent {
         return (
           <>
             <div className="signupSection">
-            <div className="info">
-                <h2>Welcome to</h2>
-                <i className="icon ion-ios-ionic-outline" aria-hidden="true"></i>
-                <p>Account registration</p>
-            </div>
             <form className="register-form"  onSubmit={this.handleSubmit}>
                 <h2>Create Account</h2>
                 <ul className="noBullet">

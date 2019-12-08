@@ -1,3 +1,7 @@
+import * as services from "../services.js";
+import * as selectors from "./selectors.js";
+import {toast} from "react-toastify";
+
 // const USER_SUCCESS = "USER_SUCCESS";
 // const USER_REQUEST = "USER_REQUEST";
 // const USER_FAILURE = "USER_FAILURE";
@@ -9,15 +13,30 @@ export const ITEM_REMOVED = "ITEM_REMOVED";
 export const USER_UPDATE = "USER_UPDATE";
 export const TOKEN_UPDATE = "TOKEN_UPDATE";
 
-export const getItems = () => (dispatch, getState) => {
+export const removeItem = (itemId) => (dispatch, getState) => {
+    const store = getState();
+    const token = selectors.getToken(store);
+    const userId = selectors.getUser(store)._id;
+    services.removeItemFromCart({itemId, token, userId})
+    .then( () => {
+        toast.success("Toode eemaldatud!");
+        dispatch({
+            type: ITEM_REMOVED,
+            payload: itemId,
+        });
+    })
+    .catch( err => {
+        console.log(err);
+        toast.error("Toote eemaldamine ebaõnnestus!");
+    });
+};
 
-    if(getState().items.length > 0) return null;
+export const getItems = () => (dispatch, getState) => {
+    const store = getState();
+    if(selectors.getItems(store).length > 0) return null;
 
     dispatch(itemsRequest());
-    return fetch("/api/v1/products")
-        .then(res => {
-            return res.json();
-        })
+    return services.getItems()
         .then(items => {
             dispatch(itemsSuccess(items));
         })
@@ -43,15 +62,24 @@ export const itemsFailure = (items) => ({
 });
 
 
-export const addItem = (item) => ({
-    type: ITEM_ADDED,
-    payload: item,
-});
-
-export const removeItem = (_id) => ({
-    type: ITEM_REMOVED,
-    payload: _id,
-});
+export const addItem = (item) => (dispatch, getState) => {
+    const store = getState();
+    const itemId = item._id;
+    const token = selectors.getToken(store);
+    const userId = selectors.getUser(store)._id;
+    services.addItemToCart({itemId, token, userId})
+    .then( () => {
+        toast.success("Product added");
+        dispatch({
+            type: ITEM_ADDED,
+            payload: itemId,
+        });
+    })
+    .catch( err => {
+        console.log(err);
+        toast.error("Failed to add product");
+    });
+};
 
 export const userUpdate = (user) => ({
     type: USER_UPDATE,

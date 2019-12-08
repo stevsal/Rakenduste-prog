@@ -3,8 +3,9 @@ import "./loginform.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { userUpdate } from "../store/actions";
+import { userUpdate, tokenUpdate } from "../store/actions";
 import { toast } from "react-toastify";
+import * as services from "../services.js";
 
 class LoginPage extends React.PureComponent {
 
@@ -23,7 +24,7 @@ class LoginPage extends React.PureComponent {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit", this.state);
+        /*console.log("submit", this.state);
         fetch("/api/v1/auth/login", {
             method: "POST",
             headers: {
@@ -32,7 +33,8 @@ class LoginPage extends React.PureComponent {
 
             body: JSON.stringify(this.state),
         })
-        .then( res => res.json())
+        .then( res => res.json())*/
+        services.login(this.state)
         .then(this.handleSuccess)
         .catch ( err => {
             console.log("Error", err);
@@ -40,8 +42,9 @@ class LoginPage extends React.PureComponent {
         });
     };
 
-    handleSuccess = ({user}) => {
+    handleSuccess = ({token, user}) => {
       this.props.dispatch(userUpdate(user));
+      this.props.dispatch(tokenUpdate(token));
       this.props.history.push(`/users/${user._id}`);
     };
 
