@@ -34,11 +34,11 @@ const Item = (props) => {
       <div className={"item"}>
         <h2 className="item__name">{props.title}</h2>
         <img src={props.imgSrc} className="item__image"/>
-        <div className="item__price">{props.price}</div>
+        <div className="item__price">{props.price}€</div>
         <div className="item_reviews">{`(${getRandomIntInclusive(0,100)} reviews)`}</div>
       </div>
     </Link>
-    
+
   );
 };
 

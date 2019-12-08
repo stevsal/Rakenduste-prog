@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import Dropdown from "../components/Dropdown.jsx";
 import {connect} from "react-redux";
 import {ItemProps} from "./CartPage.jsx";
-import {getItems} from "../store/store.js";
+import {getItems} from "../store/actions";
 //import {phones, laptops} from "./mydatabase.jsx";
 
 

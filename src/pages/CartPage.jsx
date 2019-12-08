@@ -4,7 +4,8 @@ import { FaRegTrashAlt, } from "react-icons/fa";
 import FancyButton from  "../components/FancyButton.jsx";
 import "../components/cart.css";
 import {connect} from "react-redux";
-import {removeItem} from "../store/store";
+import {removeItem} from "../store/actions";
+import {toast} from "react-toastify";
 
 class CartPage extends React.PureComponent {
   static propTypes = {
@@ -23,6 +24,7 @@ class CartPage extends React.PureComponent {
 
     handleTrash = (_id) => {
         this.props.dispatch(removeItem(_id));
+        toast.success("Product removed from cart");
     };
 
     render() {

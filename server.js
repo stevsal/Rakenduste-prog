@@ -5,11 +5,9 @@ const PORT = process.env.PORT || 3000;
 const DB = require("./server/database.js");
 const mongoose = require("mongoose");
 //const userRouter = require("./src/user.js");
-const Item = require("./src/item.model.js");
+const Item = require("./server/item.model.js");
 const bodyParser= require("body-parser")
-const itemRouter = require("./src/item.router.js");
-const userRouter = require("./src/user.router.js");
-const authRouter = require("./server/auth.router.js");
+const apiRouter = require("./server/apiRouter.js");
 //require('dotenv').config();
 
 /** Development environment. In Heroku we don't use .env file */
@@ -31,9 +29,7 @@ mongoose.connect(DB_URL)
   });
 
   app.use(bodyParser.json());
-  app.use("/api/v1/auth", authRouter);
-  app.use("/api/v1", itemRouter);
-  app.use("/api/v1/users", userRouter);
+  app.use(apiRouter);
 
 app.post("/hello",(req, res) => {
   res.send("hello");
@@ -86,7 +82,7 @@ function migrate(){
               console.log(err);
               throw new Error ("Something happened during save");
           }
-          console.log('save succcess');
+          console.log('save succces');
         });
     });
     console.log("items", items);
