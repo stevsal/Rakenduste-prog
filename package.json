@@ -4,7 +4,9 @@
   "scripts": {
     "build": "webpack",
     "start": "node server.js",
-    "start:dev": "webpack-dev-server --open --mode\"development\"",
+    "start:prelive": "npm run build && set PORT=3001 npm run start",
+    "start:backend": "node ./server.js",
+    "start:frontend": "webpack-dev-server --open --mode=\"development\"",
     "lint": "eslint --version"
   },
   "dependencies": {
@@ -13,13 +15,18 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
+    "file-loader": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.11",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-icons": "^3.8.0",
+    "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",

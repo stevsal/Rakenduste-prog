@@ -34,11 +34,17 @@ module.exports = {
       },
       { test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        }
-      }
-    ]
+        use: "babel-loader",
+                },
+                {
+                  test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+                  use: [
+                    {
+                      loader: 'file-loader',
+                    },
+                  ],
+                },
+    ],
   },
   devServer: {
     historyApiFallback: true,

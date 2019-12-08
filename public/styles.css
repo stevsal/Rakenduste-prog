@@ -64,6 +64,12 @@
   color: black;
 }
 
+.item__buybutton{
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: 100%;
+}
+
 .item_container{
   box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
   width: 90%;

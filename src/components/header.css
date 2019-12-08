@@ -142,3 +142,12 @@ img {
 	display: inline-block;
 	padding: .5em 1.5em;
 }
+
+badge {
+    position: absolute;
+    padding: 2px 6px;
+    background: #d41d46;
+    bottom: 17px;
+    color: white;
+    border-radius: 100%;
+}
