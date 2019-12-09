@@ -6,6 +6,7 @@
 .signupSection {
   background: url(https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/explained-name-b/exb-07-media-hd.jpg.asset.1565162669773.jpg);
   background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,9 +37,9 @@
   color: #0ab4b4;
 }
 .register-form {
-  width: 70%;
+  width: 100%;
   padding: 30px 0;
-  background: rgba(20, 40, 40, 0.8);
+  background: rgba(20, 40, 40, 0.23);
   transition: 0.2s;
 }
 .signupForm h2 {
@@ -78,5 +79,5 @@
 }
 
 .message {
-  color: black;
+  color: white;
 }

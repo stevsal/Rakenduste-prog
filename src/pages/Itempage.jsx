@@ -42,8 +42,10 @@ class Itempage extends React.PureComponent {
 
     return(
       <>
-        <div className={"item_container"}>
-          <img src={this.state.imgSrc} />
+        <div className={"box spacer item_container"}>
+          <div className={"item_left"}>
+            <img src={this.state.imgSrc} />
+          </div>
           <div className={"item__content"}>
             <div className={"item__name"}>{this.state.title}</div>
             <div className={"item__desc"}>{loremIpsum}</div>

@@ -68,7 +68,7 @@ class LoginPage extends React.PureComponent {
                     <form onSubmit = {this.handleSubmit}>
                         <div className="form-group"><label htmlFor="email">email</label><input type="email" name="email" value = {this.state.email} onChange = {this.handleChange}/></div>
                         <div className="form-group"><label htmlFor="password">Password</label><input type="password" name="password" value = {this.state.password} onChange = {this.handleChange} /></div>
-                        <div className="form-group"><label className="form-remember"><input type="checkbox"/>Remember Me</label><a className="form-recovery" href="#">Forgot Password?</a></div>
+                        <div className="form-group"><label className="form-remember"><input type="checkbox"/>Remember Me</label></div>
                         <div className="form-group"><button type="submit">Log In</button></div>
                         <p className= "message"> Not registered? <Link to={"/signup"}>Create an account</Link></p>
                     </form>
